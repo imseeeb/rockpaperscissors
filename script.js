@@ -1,3 +1,98 @@
+let dragActive = false,
+    selectedTarget,
+    finger;
+
+let pos = {
+    finger1: {
+        currentX: 0,
+        currentY: 0,
+        initialX: 0,
+        initialY: 0,
+        xOffset: 0,
+        yOffset: 0
+     },
+    
+    finger2: {
+        currentX: 0,
+        currentY: 0,
+        initialX: 0,
+        initialY: 0,
+        xOffset: 0,
+        yOffset: 0
+    },
+
+    finger3: {
+        currentX: 0,
+        currentY: 0,
+        initialX: 0,
+        initialY: 0,
+        xOffset: 0,
+        yOffset: 0
+    },
+
+    finger4: {
+        currentX: 0,
+        currentY: 0,
+        initialX: 0,
+        initialY: 0,
+        xOffset: 0,
+        yOffset: 0
+    },
+
+    finger5: {
+        currentX: 0,
+        currentY: 0,
+        initialX: 0,
+        initialY: 0,
+        xOffset: 0,
+        yOffset: 0
+    }
+};
+
+document.addEventListener("mousedown", dragStart, false);
+document.addEventListener("mouseup", dragEnd, false);
+document.addEventListener("mousemove", drag, false);
+
+function dragStart(e){
+    console.log(e.target.parentElement.className)
+    finger=e.target.parentElement.className;
+    selectedTarget=e.target;
+    dragActive = true;
+
+    pos[finger].initialX = e.clientX - pos[finger].xOffset;
+    pos[finger].initialY = e.clientY - pos[finger].yOffset;
+}
+
+function dragEnd(e){
+        pos[finger].initialX = pos[finger].currentX;
+        pos[finger].initialY = pos[finger].currentY;
+        dragActive = false;
+}
+
+function drag(e){
+    if (dragActive == true){
+        e.preventDefault();
+
+        pos[finger].currentX = e.clientX - pos[finger].initialX;
+        pos[finger].currentY = e.clientY - pos[finger].initialY;
+
+        pos[finger].xOffset = pos[finger].currentX;
+        pos[finger].yOffset = pos[finger].currentY;
+
+        setPosition(pos[finger].currentX,pos[finger].currentY,selectedTarget);
+    }
+}
+
+function setPosition(x,y, target){
+    target.style.left = x + "px";
+    target.style.top = y + "px";
+}
+
+
+
+
+/*
+
 let scoreBoard = [0,0];
 let player1_Score, player2_Score;
 
@@ -59,3 +154,5 @@ function updateScore(result){
 
     console.log(`PLAYER: ${player1_Score}, COMPUTER: ${player2_Score}`)
 }
+
+*/

@@ -1,0 +1,48 @@
+body{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.joint{
+    background-color:red;
+    position:absolute;
+    width: 100px;
+    height: 100px;
+}
+
+.finger1{
+    position: absolute;
+    left: 500px;
+}
+
+.finger1{
+    position: absolute;
+    left: 250px;
+    top: 100px;
+}
+.finger2{
+    position: absolute;
+    left: 500px;
+    top: 100px;
+}
+
+.finger3{
+    position: absolute;
+    left: 500px;
+    top: 300px;
+}
+.finger4{
+    position: absolute;
+    left: 400px;
+    top: 200px;
+}
+.finger5{
+    position: absolute;
+    left: 200px;
+    top: 300px;
+}
