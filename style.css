@@ -6,43 +6,60 @@ body{
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+
+    margin: 0px;
 }
 
 .joint{
     background-color:red;
     position:absolute;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
 }
 
 .finger1{
     position: absolute;
-    left: 500px;
-}
-
-.finger1{
-    position: absolute;
-    left: 250px;
-    top: 100px;
+    left: 750px;
+    top: 90px;
 }
 .finger2{
     position: absolute;
-    left: 500px;
-    top: 100px;
+    left: 700px;
+    top: 150px;
 }
 
 .finger3{
     position: absolute;
-    left: 500px;
-    top: 300px;
+    left: 750px;
+    top: 210px;
 }
 .finger4{
     position: absolute;
-    left: 400px;
-    top: 200px;
+    left: 800px;
+    top: 270px;
 }
 .finger5{
     position: absolute;
-    left: 200px;
-    top: 300px;
+    left: 1000px;
+    top: 25px;
+}
+
+.hand{
+    position: absolute;
+    background-color: orange;
+    left:1000px;
+    top:100px;
+    width: 200px;
+    height: 200px;
+    border-radius: 25px;
+}
+
+svg{
+    position: absolute;
+    pointer-events: none;
+}
+
+line{
+    z-index: -1;
 }

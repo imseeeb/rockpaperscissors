@@ -49,27 +49,54 @@ let pos = {
     }
 };
 
+drawFingers();
+
 document.addEventListener("mousedown", dragStart, false);
 document.addEventListener("mouseup", dragEnd, false);
 document.addEventListener("mousemove", drag, false);
 
-function dragStart(e){
-    console.log(e.target.parentElement.className)
-    finger=e.target.parentElement.className;
-    selectedTarget=e.target;
-    dragActive = true;
+function drawFingers(){
+    let fingerPos,
+        handPos,
+        rectJoint,
+        rectHand,
+        line;
+    for (i=1; i<=5; i++){
 
-    pos[finger].initialX = e.clientX - pos[finger].xOffset;
-    pos[finger].initialY = e.clientY - pos[finger].yOffset;
+        fingerPos = document.querySelector('.finger'+i+" .joint");
+        handPos = document.querySelector('.hand');
+
+        rectJoint = fingerPos.getBoundingClientRect();
+        rectHand = handPos.getBoundingClientRect();
+
+        line = document.querySelector('line.finger'+i);
+        line.setAttribute('x1', rectJoint.left+25);
+        line.setAttribute('y1', rectJoint.top+25);
+        line.setAttribute('x2', rectHand.left+5);
+        if(i==5){ //thumb
+            line.setAttribute('x2', rectHand.left+175);
+            line.setAttribute('y2', rectHand.top+25);
+        }
+        else{
+            line.setAttribute('y2', rectHand.top+50*i-25);
+        }
+    }
 }
 
-function dragEnd(e){
-        pos[finger].initialX = pos[finger].currentX;
-        pos[finger].initialY = pos[finger].currentY;
-        dragActive = false;
+
+function dragStart(e){
+    if(e.target.parentElement!==null && [e.target.parentElement.className].toString().includes('finger')==true){
+        finger=e.target.parentElement.className;
+        selectedTarget=e.target;
+        pos[finger].initialX = e.clientX - pos[finger].xOffset;
+        pos[finger].initialY = e.clientY - pos[finger].yOffset;
+
+        dragActive = true;
+    }
 }
 
 function drag(e){
+
     if (dragActive == true){
         e.preventDefault();
 
@@ -79,7 +106,82 @@ function drag(e){
         pos[finger].xOffset = pos[finger].currentX;
         pos[finger].yOffset = pos[finger].currentY;
 
-        setPosition(pos[finger].currentX,pos[finger].currentY,selectedTarget);
+    // finger limits:
+    let limitOutside, limitInside, limitUp, limitDown;
+
+    // stretch outside:
+        if(finger=='finger5'){
+            limitOutside=30;
+        }
+        else{
+            limitOutside=-30;
+        }
+        if(pos[finger].currentX<=limitOutside){
+            setPosition(limitOutside,pos[finger].currentY,selectedTarget);
+            drawFingers();
+            pos[finger].currentX=limitOutside;
+            pos[finger].xOffset=limitOutside;
+        }
+
+    // stretch inside:
+        switch (finger){
+            case 'finger1':
+                limitInside = 430;
+                break;
+            case 'finger2':
+                limitInside = 480;
+                break;
+            case 'finger3':
+                limitInside = 430;
+                break;
+            case 'finger4':
+                limitInside = 370;
+                break;
+            case 'finger5':
+                limitInside = 130;
+                break;
+        }
+        if(pos[finger].currentX>=limitInside){
+            setPosition(limitInside,pos[finger].currentY,selectedTarget);
+            drawFingers();
+            pos[finger].currentX=limitInside;
+            pos[finger].xOffset=limitInside;
+        }
+    // go up:
+        limitUp = -50;
+        if(pos[finger].currentY<=limitUp){
+            setPosition(pos[finger].currentX,limitUp,selectedTarget);
+            drawFingers();
+            pos[finger].currentY=limitUp;
+            pos[finger].yOffset=limitUp;
+        }        
+    //go down:
+        if (finger=='finger5'){
+            limitDown = 200;
+        }
+        else{
+            limitDown = 50;
+        }
+        if(pos[finger].currentY>=limitDown){
+            setPosition(pos[finger].currentX,limitDown,selectedTarget);
+            drawFingers();
+            pos[finger].currentY=limitDown;
+            pos[finger].yOffset=limitDown;
+        }
+        
+    // just normal case (all between limitations):
+        else{
+            setPosition(pos[finger].currentX,pos[finger].currentY,selectedTarget);
+            drawFingers();
+        }
+    }
+}
+
+function dragEnd(){
+    if(dragActive==true){
+        pos[finger].initialX = pos[finger].currentX;
+        pos[finger].initialY = pos[finger].currentY;
+        dragActive = false;
     }
 }
 
@@ -88,7 +190,15 @@ function setPosition(x,y, target){
     target.style.top = y + "px";
 }
 
+function moveLine(fingerNum){
+    const line = document.querySelector('line.'+fingerNum)
+    line.setAttribute('x1', 100);
+    line.setAttribute('y1', 100);
+}
 
+function detectFigure(){
+
+}
 
 
 /*
