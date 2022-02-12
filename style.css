@@ -1,65 +1,222 @@
 body{
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
-
     margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overscroll-behavior-y: contain;
+    background-color: rgb(99, 221, 252);
+
+}
+
+.player1{
+    position:relative;
+    left:calc(50vw - 300px);
+}
+.player1 svg{
+    left:calc(-50vw + 300px);
+}
+
+.player2{
+    position: relative;
+    left:calc(50vw - 200px);
+    top:calc(50vh - 50px);
+}
+
+.player2 svg{
+    left:calc(-50vw + 200px);
+    top:calc(-50vh + 50px);
 }
 
 .joint{
-    background-color:red;
+    background-color:rgb(231, 139, 0);
     position:absolute;
     width: 50px;
     height: 50px;
     border-radius: 25px;
 }
 
-.finger1{
+.player1 .finger1{
     position: absolute;
-    left: 750px;
+    left: 50px;
     top: 90px;
 }
-.finger2{
+.player1 .finger2{
     position: absolute;
-    left: 700px;
+    left: 0px;
     top: 150px;
 }
 
-.finger3{
+.player1 .finger3{
     position: absolute;
-    left: 750px;
+    left: 50px;
     top: 210px;
 }
-.finger4{
+.player1 .finger4{
     position: absolute;
-    left: 800px;
+    left: 100px;
     top: 270px;
 }
-.finger5{
+.player1 .finger5{
     position: absolute;
-    left: 1000px;
+    left: 300px;
     top: 25px;
 }
 
-.hand{
+.player1 .palm{
     position: absolute;
-    background-color: orange;
-    left:1000px;
+    background-color: rgb(255, 168, 7);
+    left:300px;
     top:100px;
     width: 200px;
     height: 200px;
     border-radius: 25px;
 }
+.player1 .innerPalm{
+    position: absolute;
+    background-color: rgb(231, 139, 0);
+    left:330px;
+    top:100px;
+    width: 100px;
+    height: 200px;
+    border-radius: 100px;
+    rotate: -25deg;
+}
+
+.player1 .innerPalm2{
+    position: absolute;
+    background-color: rgb(236, 144, 4);
+    left:325px;
+    top:105px;
+    width: 30px;
+    height: 190px;
+    border-radius: 10px;
+    rotate: -5deg;
+}
+
+.player1 .innerPalm3{
+    position: absolute;
+    background-color: rgb(247, 160, 0);
+    left:420px;
+    top:100px;
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+}
+
+.player1 .arm{
+    position: absolute;
+    width: 100vw;
+    height: 200px;
+    top:100px;
+    left:330px;
+    background-color: rgb(28, 28, 204);
+}
+
+.player2 .finger1{
+    position: absolute;
+    left: 400px;
+    top: 90px;
+}
+.player2 .finger2{
+    position: absolute;
+    left: 450px;
+    top: 150px;
+}
+
+.player2 .finger3{
+    position: absolute;
+    left: 400px;
+    top: 210px;
+}
+.player2 .finger4{
+    position: absolute;
+    left: 350px;
+    top: 270px;
+}
+.player2 .finger5{
+    position: absolute;
+    left: 150px;
+    top: 25px;
+}
+
+.player2 .palm{
+    position: absolute;
+    background-color: rgb(255, 168, 7);
+    left:0px;
+    top:100px;
+    width: 200px;
+    height: 200px;
+    border-radius: 25px;
+}
+.player2 .innerPalm{
+    position: absolute;
+    background-color: rgb(231, 139, 0);
+    left:70px;
+    top:100px;
+    width: 100px;
+    height: 200px;
+    border-radius: 100px;
+    rotate: 25deg;
+}
+
+.player2 .innerPalm2{
+    position: absolute;
+    background-color: rgb(236, 144, 4);
+    left:145px;
+    top:105px;
+    width: 30px;
+    height: 190px;
+    border-radius: 10px;
+    rotate: 5deg;
+}
+
+.player2 .innerPalm3{
+    position: absolute;
+    background-color: rgb(247, 160, 0);
+    left:0px;
+    top:100px;
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+}
+
+.player2 .arm{
+    position: relative;
+    width: 3000px;
+    height: 200px;
+    top:100px;
+    right: 2900px;
+    background-color: rgb(204, 28, 28);
+
+}
 
 svg{
-    position: absolute;
+    position:absolute;
+    top:0px;
+    left:0px;
     pointer-events: none;
 }
 
-line{
-    z-index: -1;
+.scoreBoard{
+    position: absolute;
+    display: flex;
+    flex: 1;
+    width: 99vw;
+    justify-content: space-between;
+    align-self: center;
+    top: 90vh;
+    font-size: 35px;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.button{
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    top:90vh;
+    left:calc(50vw - 50px);
+    font-size: 20px;
+    font-family:'Courier New', Courier, monospace;
 }

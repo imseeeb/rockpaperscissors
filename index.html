@@ -2,39 +2,102 @@
 <head>
     <title>rock paper scissors</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 
 <body>
-    <div class="hand"></div>
-    
-    <svg width="1500px" height="1000px">
-        <line class="finger5" x1="0" y1="0" x2="0" y2="0" stroke="blue" stroke-width="50px" stroke-linecap="round"/>
-    </svg>
-    <div class="finger5">
-        <div class="joint"></div>
+<div class='players'>
+    <div class='player1'>
+        <div class='hand'>
+            <div class="arm"></div>
+            <div class="palm"></div>
+            <div class="innerPalm"></div>
+            <div class="innerPalm2"></div>
+            <div class="innerPalm3"></div>
+        </div>
+
+        <svg width="100%" height="100vh">
+            <line class="finger1" x1="0" y1="0" x2="0" y2="0" stroke="rgb(247, 160, 0)" stroke-width="50px" stroke-linecap="round"/>
+            <line class="finger2" x1="0" y1="0" x2="0" y2="0" stroke="rgb(247, 160, 0)" stroke-width="50px" stroke-linecap="round"/>
+            <line class="finger3" x1="0" y1="0" x2="0" y2="0" stroke="rgb(247, 160, 0)" stroke-width="50px" stroke-linecap="round"/>
+            <line class="finger4" x1="0" y1="0" x2="0" y2="0" stroke="rgb(247, 160, 0)" stroke-width="50px" stroke-linecap="round"/>
+        </svg>
+
+        <div class='hand'>
+            <div class="finger1">
+                <div class="joint"></div>
+            </div>
+            <div class="finger2">
+                <div class="joint"></div>
+            </div>
+            <div class="finger3">
+                <div class="joint"></div>
+            </div>
+            <div class="finger4">
+                <div class="joint"></div>
+            </div>
+        </div>
+
+        <svg width="100%" height="100vh">
+            <line class="finger5" x1="0" y1="0" x2="0" y2="0" stroke="rgb(247, 160, 0)" stroke-width="50px" stroke-linecap="round"/>
+        </svg>
+
+        <div class='hand'>
+            <div class="finger5">
+                <div class="joint"></div>
+            </div>
+        </div>
     </div>
 
-    <svg width="1500px" height="1000px">
-        <line class="finger1" x1="0" y1="0" x2="0" y2="0" stroke="darkorange" stroke-width="50px" stroke-linecap="round"/>
-        <line class="finger2" x1="0" y1="0" x2="0" y2="0" stroke="darkorange" stroke-width="50px" stroke-linecap="round"/>
-        <line class="finger3" x1="0" y1="0" x2="0" y2="0" stroke="darkorange" stroke-width="50px" stroke-linecap="round"/>
-        <line class="finger4" x1="0" y1="0" x2="0" y2="0" stroke="darkorange" stroke-width="50px" stroke-linecap="round"/>
-    </svg>
+    <div class='player2'>
+        <div class='hand'>
+            <div class="arm"></div>
+            <div class="palm"></div>
+            <div class="innerPalm"></div>
+            <div class="innerPalm2"></div>
+            <div class="innerPalm3"></div>
+        </div>
 
-    <div class="finger1">
-        <div class="joint"></div>
-    </div>
-    <div class="finger2">
-        <div class="joint"></div>
-    </div>
-    <div class="finger3">
-        <div class="joint"></div>
-    </div>
-    <div class="finger4">
-        <div class="joint"></div>
-    </div>
+        <svg width="100%" height="100vh">
+            <line class="finger1" x1="0" y1="0" x2="0" y2="0" stroke="rgb(247, 160, 0)" stroke-width="50px" stroke-linecap="round"/>
+            <line class="finger2" x1="0" y1="0" x2="0" y2="0" stroke="rgb(247, 160, 0)" stroke-width="50px" stroke-linecap="round"/>
+            <line class="finger3" x1="0" y1="0" x2="0" y2="0" stroke="rgb(247, 160, 0)" stroke-width="50px" stroke-linecap="round"/>
+            <line class="finger4" x1="0" y1="0" x2="0" y2="0" stroke="rgb(247, 160, 0)" stroke-width="50px" stroke-linecap="round"/>
+        </svg>
 
+        <div class='hand'>
+            <div class="finger1">
+                <div class="joint"></div>
+            </div>
+            <div class="finger2">
+                <div class="joint"></div>
+            </div>
+            <div class="finger3">
+                <div class="joint"></div>
+            </div>
+            <div class="finger4">
+                <div class="joint"></div>
+            </div>
+        </div>
 
+        <svg width="100%" height="100vh">
+            <line class="finger5" x1="0" y1="0" x2="0" y2="0" stroke="rgb(247, 160, 0)" stroke-width="50px" stroke-linecap="round"/>
+        </svg>
+
+        <div class='hand'>
+            <div class="finger5">
+                <div class="joint"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="scoreBoard">
+<div class="scoreBoardComputer">COMPUTER: <span class="computerScore">0</span></div>
+<div class="scoreBoardPlayer">YOU: <span class="playerScore">0</span></div>
+</div>
+
+<button class="button">PLAY</button>
 </body>
